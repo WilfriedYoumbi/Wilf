@@ -1,0 +1,371 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{authblk}
+\usepackage[toc,page]{appendix}
+\usepackage{amssymb, amsmath, latexsym}
+\usepackage{footnote}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{floatrow}
+\floatsetup[table]{capposition=top}
+\usepackage{caption,tabularx,booktabs}
+\usepackage{mathtools}
+\usepackage{lipsum}
+\captionsetup{font=doublespacing}% Double-spaced float captions
+\usepackage{setspace}   %Allows double spacing with the \doublespacing command
+
+\doublespacing% Double-spaced document text
+%\usepackage[titletoc]{appendix}
+\usepackage{bbm}
+\usepackage{subcaption}
+\usepackage{bbding}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{booktabs,caption}
+\usepackage[flushleft]{threeparttable}
+\usepackage{apacite}
+\usepackage{natbib}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{tikz,tkz-tab}
+\usepackage{bigstrut}
+\usepackage{bigdelim}
+\usepackage{tabvar}
+\usepackage{setspace}
+\usepackage[flushleft]{threeparttable}
+\usepackage{booktabs}
+\usepackage[gen]{eurosym}
+\usepackage[colorlinks=true,
+            linkcolor=red,
+            urlcolor=blue,
+            citecolor=blue]{hyperref}
+\usepackage{bm}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+\usetikzlibrary{shapes,arrows,positioning}
+\usepackage{lscape}
+\usepackage{color}
+\usepackage{alltt}
+\newcommand*{\threeemdash}{\rule[0.5ex]{3em}{0.55pt}}
+\usepackage{xparse}
+\usepackage{amsmath}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\usepackage[short]{optidef}
+\newcommand*{\xdash}[1][6em]{\rule[0.7ex]{#1}{0.75pt}}
+%\bibliographystyle{abbrvnat}
+%\setcitestyle{authoryear,open={((},close={))}}
+% Page length commands go here in the preamble
+\setlength{\oddsidemargin}{-0.25in} % Left margin of 1 in + 0 in = 1 in
+\setlength{\textwidth}{7in}   % Right margin of 8.5 in - 1 in - 6.5 in = 1 in
+\setlength{\topmargin}{-.75in}  % Top margin of 2 in -0.75 in = 1 in
+\setlength{\textheight}{9.2in}  % Lower margin of 11 in - 9 in - 1 in = 1 in
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\usepackage{booktabs,array,lmodern}
+\usepackage{hyperref}
+%\addbibresource{reference.bib}
+
+\renewcommand{\baselinestretch}{1.5} % 1.5 denotes double spacing. Changing it will change the spacing
+\renewcommand\Authands{ and }
+\setlength{\parindent}{0in}
+
+
+\newtheorem{hyp}{Hypothesis}
+\newtheorem{assumption}{Assumption}
+\newtheorem{subhyp}{Hypothesis}[hyp]
+\renewcommand{\thesubhyp}{\thehyp\alph{subhyp}}
+
+\newcommand{\red}[1]{{\color{red} #1}}
+\newcommand{\blue}[1]{{\color{blue} #1}}
+
+\begin{document}
+
+\begin{titlepage}
+\title{Macroeconomics 2-Assignment 2 }
+\end{titlepage}
+%\date{\today}
+\author{Wilfried Youmbi\\} 
+\maketitle
+
+
+
+\section{Define a competitive equilibrium for this economy}
+A competitive equilibrium for this economy comprises of price
+$\{p_{t}, w_{t}, r_{t}\}^{\infty}_{t=0}$, allocations for the firm $\{k^{d}_{t}, l^{d}_{t}, y_{t}\}^{\infty}_{t=0}$ and the household $\{c_{t}, i_{t}, x_{t+1}, k^{s}_{t}, l^{s}_{t}\}^{\infty}_{t=0}$ such that:
+
+\begin{itemize}
+\item Given prices $\{p_{t}, w_{t}, r_{t}\}^{\infty}_{t=0}$, the allocation of the representative firm $\{k^{d}_{t}, l^{d}_{t}, y_{t}\}^{\infty}_{t=0}$ solves:\\
+
+
+
+    \begin{maxi}
+	  {\{k^{d}_{t}, l^{d}_{t}, y_{t}\}_{t=0}^\infty}{\sum_{t=0}^{\infty} p_{t}(y_{t}-r_{t}k^{d}_{t}-w_{t}l^{d}_{t})}{}{}	  
+ \addConstraint {y_{t}}{=z(k^{d}_{t})^\alpha(l^{d}_{t})^{1-\alpha},\quad} \forall t \geq 0
+   \addConstraint{y_{t}, k^{d}_{t}, l^{d}_{t} \geq 0}~\forall t \geq 0
+    \end{maxi}
+  
+  \item Given prices $\{p_{t}, w_{t}, r_{t}\}^{\infty}_{t=0}$, the allocation of the representative household $\{c_{t}, i_{t}, x_{t+1}, k^{s}_{t}, l^{s}_{t}\}^{\infty}_{t=0}$ solves:
+  
+   \begin{maxi}
+	  {\{c_{t}, i_{t}, x_{t+1}, k^{s}_{t}, l^{s}_{t}\}_{t=0}^\infty}{\sum_{t=0}^{\infty} \beta_{t}(\frac{(c_{t})^{1-\sigma}}{1-\sigma}-\chi \frac{(l^s_{t})^{1+\eta}}{1+\eta})}{}{}	  
+ \addConstraint {\sum_{t=0}^{\infty}p_{t}(c_{t}+i_{t}) }{\leq \sum_{t=0}^{\infty} p_{t}(r_{t}k^{s}_{t} + w_{t}l^{s}_{t}) + \pi ,\quad} \forall t \geq 0
+ \addConstraint {x_{t+1}}{=(1-\delta)x_{t}+i_{t},\quad} \forall t \geq 0
+ \addConstraint{0\leq l^{s}_{t}\leq 1, ~0 \leq k^{s}_{t}\leq x_{t} \quad }~\forall t \geq 0
+ \addConstraint{c_{t}, x_{t+1} \geq 0}~\forall t \geq 0
+ \addConstraint{k_{0} ~~~given}
+    \end{maxi}
+  
+\item Markets clearing conditions
+\begin{itemize}
+\item    $y_{t} = c_{t} + i_{t}$ (Goods Market)
+\item  $ l^{d}_{t} = l^{s}_{t} = l_{t}$ (Labour Market)
+\item $k^{d}_{t} = k^{s}_{t} =k_{t}$ (Capital Services Market)
+\end{itemize}
+\end{itemize}
+
+\section{Find the steady state value for \{c, l, k, y, r, w\}}
+
+
+    \begin{maxi}
+	  {\{k^{d}_{t}, l^{d}_{t}, y_{t}\}_{t=0}^\infty}{\sum_{t=0}^{\infty} p_{t}(y_{t}-r_{t}k^{d}_{t}-w_{t}l^{d}_{t})}{}{}	  
+ \addConstraint {y_{t}}{=z(k^{d}_{t})^\alpha(l^{d}_{t})^{1-\alpha},\quad} \forall t \geq 0
+   \addConstraint{y_{t}, k^{d}_{t}, l^{d}_{t} \geq 0}~\forall t \geq 0
+    \end{maxi}
+  
+The first order conditions of the firm's problem with respect to $k_{t}$ and $l_{t}$ are the following:
+    \begin{equation}
+    \begin{split}
+    r_{t} &= z\alpha (k_{t})^{\alpha-1}(l_{t})^{1-\alpha}\\
+    w_{t} &= z(1-\alpha)(k_t)^{\alpha} (l_t)^{-\alpha}\\
+    \pi &= \sum_{t=0}^{\infty} p_{t}(z(k_{t})^\alpha(l_{t})^{1-\alpha}-r_{t}k_{t}-w_{t}l_{t})=0
+    \end{split}
+    \end{equation}
+  
+   \begin{maxi}
+	  {\{c_{t}, i_{t}, x_{t+1}, k^{s}_{t}, l^{s}_{t}\}_{t=0}^\infty}{\sum_{t=0}^{\infty} \beta_{t}(\frac{(c_{t})^{1-\sigma}}{1-\sigma}-\chi \frac{(l^s_{t})^{1+\eta}}{1+\eta})}{}{}	  
+ \addConstraint {\sum_{t=0}^{\infty}p_{t}(c_{t}+i_{t}) }{\leq \sum_{t=0}^{\infty} p_{t}(r_{t}k^{s}_{t} + w_{t}l^{s}_{t}) + \pi ,\quad} \forall t \geq 0
+ \addConstraint {x_{t+1}}{=(1-\delta)x_{t}+i_{t},\quad} \forall t \geq 0
+ \addConstraint{0\leq l^{s}_{t}\leq 1, ~0 \leq k^{s}_{t}\leq x_{t} \quad }~\forall t \geq 0
+ \addConstraint{c_{t}, x_{t+1} \geq 0}~\forall t \geq 0
+ \addConstraint{k_{0} ~~~given}
+    \end{maxi}
+    
+ \begin{equation}
+    \begin{split}
+    \mathcal{L}(\{c_t,k_t,l_t\}_{t=0}^{\infty},\lambda_t)=&\sum_{t=0}^{\infty} \beta ^t(\frac{c_t^{1-\sigma}}{1-\sigma}-\chi \frac{l_t^{1+\eta}}{1+\eta})\\
+    &+\lambda_t(\sum_{t=0}^{\infty}p_t(zk_t^{\alpha}l_t^{1-\alpha}-c_t-k_{t+1}+(1-\delta)k_t)\\
+    \end{split}
+    \end{equation}
+    
+  The first order conditions are the following:
+  
+  \begin{equation}
+    \begin{split} 
+    \frac{\partial \mathcal{L}}{\partial c_t} &=\beta^tc_t^{-\sigma}-\lambda_t p_t=0\\
+    \frac{\partial \mathcal{L}}{\partial l_t} &=-\beta^t\chi l_t^{\eta}+\lambda_t p_tz(1-\alpha) k_t^{\alpha}l_t^{-\alpha}=0\\
+    \frac{\partial \mathcal{L}}{\partial k_t}&=\lambda_t p_t(z\alpha k_t^{\alpha -1}l_t^{1-\alpha}+1-\delta)-\lambda_{t-1}p_{t-1}=0\\
+    \frac{\partial \mathcal{L}}{\partial \lambda_t} &= zk_t^{\alpha}l_t^{1-\alpha}-k_{t+1}+(1-\delta)k_t - c_t = 0
+    \end{split}
+    \end{equation}
+    
+  In steady state, $c_t =c, k_t =k, l_t =l$. Normalizing  $p_0=1$, we get:
+ \begin{equation}
+    \begin{split}
+    \lambda_t &= c\\
+    p_t &= \beta^t\\
+    c^{\sigma} l^{\eta}&= z(1-\alpha)k^{\alpha}l^{-\alpha}/\chi\\
+    z\alpha k^{\alpha -1}l^{1-\alpha}&= 1/\beta -1 +\delta\\
+    c&=zk^{\alpha}l^{1-\alpha}-\delta k
+    \end{split}
+    \end{equation}
+ 
+Next, we will express the steady state variables in term of $U=\frac{k}{l}$ and $V=\frac{c}{l}$.
+
+  \begin{equation}
+    \begin{split}
+    \: U &= \frac{k}{l}=\left(\frac{z\alpha \beta}{1-\beta +\beta \delta}\right)^{\frac{1}{1-\alpha}} \\
+   \: V &=\frac{c}{l}=z(\frac{k}{l})^{\alpha}-\delta \frac{k}{l}=zU^{\alpha}-\delta U \\
+    c^{\sigma} l^{\eta} &= (lV)^{\sigma}l^{\eta}\\
+    &= z(1-\alpha)(\frac{k}{l})^{\alpha}/\chi\\
+    &\Rightarrow l^{\sigma+\eta} =\frac{z(1-\alpha)U^{\alpha}}{\chi V^{\sigma}}\\ &\Rightarrow l=\left(\frac{z(1-\alpha)U^{\alpha}}{\chi V^{\sigma}}\right)^{\frac{1}{\sigma+\eta}} \quad (*)
+    \end{split}
+    \end{equation}
+Having $l$ in steady state, we can obtain other steady state variables:
+  \begin{equation}
+    \begin{split}
+    k&=Ul\quad (*)\\
+    c&=Vl\quad (*)\\
+    y&=zk^{\alpha}l^{1-\alpha}=zU^{\alpha}l\quad (*)\\
+    r&=\alpha zk^{\alpha-1}l^{1-\alpha}=\alpha zU^{\alpha -1}\quad (*)\\
+    w&=(1-\alpha)zk^{\alpha}l^{-\alpha}=(1-\alpha)zU^{\alpha} \quad (*)
+    \end{split}
+    \end{equation}
+    
+     \section{Pose the planner’s dynamic programming problem. Write down the appropriate
+Bellman equation.}
+
+The social planner's problem is as follows:
+\begin{equation}
+\begin{split}
+\max\limits_{\{k_{t}, c_{t}, l_{t}\}^{\infty}_{t=0}} \sum_{t=0}^{\infty} \beta^t(\frac{(c_{t})^{1-\sigma}}{1-\sigma}-\chi \frac{(l_{t})^{1+\eta}}{1+\eta}) \\
+    s.t. \quad z(k_t)^{\alpha}(l_t)^{1-\alpha} &= c_t+k_{t+1}-(1-\delta)k_t \quad \forall t\geq0\\
+    c_t &\geq 0, k_t \geq 0, 0 \leq l_t \leq 1 \quad \forall t\geq0\\
+     \quad {k}_{0}\:given
+\end{split}
+\end{equation}
+The associated Bellman equation is defined as follows:
+\begin{equation}
+\begin{split}
+v(k_0) = \max\limits_{\begin{smallmatrix}0\leq k' \leq z(k)^{\alpha}(l)^{1-\alpha}+ (1-\delta)k\\ 0\leq l \leq 1\end{smallmatrix}} \{\frac{(z(k)^{\alpha}(l)^{1-\alpha}+ (1-\delta)k-k')^{1-\sigma}}{1-\sigma}-\chi \frac{(l)^{1+\eta}}{1+\eta}+\beta v(k')\}
+\end{split}
+\end{equation}
+
+\section{Find $\chi$ such that $l_{ss}$ = 0.4}
+
+From $l_{ss}^{\sigma+\eta} =\frac{z(1-\alpha)U^{\alpha}}{\chi V^{\sigma}}$, we can derive $\chi $ as: $\chi = \frac{z(1-\alpha)U^{\alpha}}{l_{ss}^{\sigma+\eta} V^{\sigma}}$ \\
+
+
+Plug in $\alpha=1/3,z=1,\delta=2,\eta=1,l_{ss}=0.4$, $\beta=0.9$ we obtain
+\begin{equation}
+\chi = 38.81
+\end{equation}
+
+\section{Solve the planner’ problem numerically using value function iteration. You must do it using:}
+\subsection{Plain VFI}
+
+\begin{figure}[!htbp]
+\centering
+  \includegraphics[scale=0.45]{ASS2_5a_policy.png}
+  \caption{Approximated Value Function}
+  \label{fig:boat1}
+\end{figure}
+\pagebreak  
+
+\begin{figure}[!htbp]
+\centering
+  \includegraphics[scale=0.45]{ASS2_5a_value.png}
+  \caption{Approximated Policy Function}
+  \label{fig:boat1}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+  \includegraphics[scale=0.45]{ASS2_5a_Euler.png}
+  \caption{Approximated Error($\%$)}
+  \label{fig:boat1}
+\end{figure}
+
+\subsection{Modified Howard’s Policy Iteration (you must choose the number of policy iterations)}
+
+\pagebreak
+\begin{figure}[!htbp]
+\centering
+  \includegraphics[scale=0.45]{ASS2_5b_policy.png}
+  \caption{Approximated Value Function}
+  \label{fig:boat1}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+  \includegraphics[scale=0.45]{ASS2_5b_value.png}
+  \caption{Approximated Policy Function}
+  \label{fig:boat1}
+\end{figure}
+\pagebreak
+
+\pagebreak
+\begin{figure}[!htbp]
+\centering
+  \includegraphics[scale=0.45]{ASS2_5b_Euler.png}
+  \caption{Approximated Error($\%$)}
+  \label{fig:boat1}
+\end{figure}
+
+\subsection{MacQueen-Porteus Bounds}
+\begin{figure}[!htbp]
+\centering
+  \includegraphics[scale=0.45]{ASS2_5c_policy.png}
+  \caption{Approximated Value Function}
+  \label{fig:boat1}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+  \includegraphics[scale=0.45]{ASS2_5c_value.png}
+  \caption{Approximated Policy Function}
+  \label{fig:boat1}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+  \includegraphics[scale=0.45]{ASS2_5c_Euler.png}
+  \caption{Approximated Error($\%$)}
+  \label{fig:boat1}
+\end{figure}
+\pagebreak
+
+\section{Use the solution to the planner’s problem to obtain the steady state value of $\{c, k, r,l,w, y\}$}
+\subsection{Capital decreases to 80$\%$ of its steady state value}
+\begin{figure}[!htbp]
+\centering
+  \includegraphics[scale=0.5]{ASS2_6a_k.png}
+  \caption{SS capital decreases to 80$\%$ }
+  \label{fig:boat1}
+\end{figure}
+
+\subsection{Productivity increases permanently by 5$\%$}
+\begin{figure}[!htbp]
+\centering
+  \includegraphics[scale=0.5]{ASS2_6a_z.png}
+  \caption{Productivity increases permanently by 5$\%$ }
+  \label{fig:boat1}
+\end{figure}
+
+\section{Prove that the mapping used in Howard’s policy iteration algorithm is a contraction.}
+I will prove this using an alternative version of Blackwell’s theorem\\
+\begin{equation}
+\begin{split}
+Tv(k) = \max\limits_{\begin{smallmatrix}0\leq k' \leq z(k)^{\alpha}(l)^{1-\alpha}+ (1-\delta)k\\ 0\leq l \leq 1\end{smallmatrix}} \{\frac{(z(k)^{\alpha}(l)^{1-\alpha}+ (1-\delta)k-k')^{1-\sigma}}{1-\sigma}-\chi \frac{(l)^{1+\eta}}{1+\eta}+\beta v(k')\}
+\end{split}
+\end{equation}
+
+Let's pose 
+\begin{equation*}
+U(f(k)-k', l)=\frac{(f(k)-k')^{1-\sigma}}{1-\sigma}-\chi \frac{l^{1+\eta}}{1+\eta}
+\end{equation*}
+
+Let's define $(B[0,\infty),d)$ as our metric space. $B$ being the space of bounded functions on $[0, \infty)$ with $d$ being the sup-norm. I am going to verify that all the hypotheses for Blackwell’s theorem are satisfied.
+
+\begin{itemize}
+\item T maps $(B[0,\infty),d)$ into itself. 
+
+In fact, if we take $v$ to be bounded, since we
+assumed that U is bounded, so is $Tv$.
+\item Monotonicity
+
+Given $v$, $w$  $\in  B[0,\infty)$, $\beta \in (0,1)$, and $k \geq 0$ such that $v(k) \leq w(k)$, if $\overline{g}(k)$ denotes the Howard's optimal policy function, hence,
+\begin{equation}
+\begin{split}
+Tv(k) &=  U(\overline{g}(k))+\beta v(\overline{g}(k))\\
+&\leq U(\overline{g}(k))+\beta w(\overline{g}(k))\\
+&= Tw(k)
+\end{split}
+\end{equation}
+\item Discounting
+
+Given $v \in B[0,\infty)$ , $k \geq 0$, $a \geq 0$, and $\beta \in (0,1)$
+\begin{equation}
+\begin{split}
+T(v+a)(k) &=  U(\overline{g}(k))+\beta (v(\overline{g}(k))+a)\\
+&= U(\overline{g}(k))+\beta v(\overline{g}(k))+\beta a\\
+&= Tv(k) + \beta a
+\end{split}
+\end{equation}
+\end{itemize}
+
+The mapping used in Howard's fixed policy function satisfies all the hypotheses for Blackwell’s theorem, therefore it's a contraction mapping.
+
+\end{document}
